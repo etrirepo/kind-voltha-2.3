@@ -1,0 +1,421 @@
+2020-09-02T04:28:37.430414Z [info     ] Connecting to the gRPC API
+2020-09-02T04:28:47.686673Z [debug    ] starting
+2020-09-02T04:28:47.687001Z [info     ] started
+2020-09-02T04:28:47.687372Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:28:48.274296Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'dynamicload.proto' length=3040
+2020-09-02T04:28:48.275207Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'dynamicload.desc' length=70182
+2020-09-02T04:28:48.275869Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'utility.proto' length=3450
+2020-09-02T04:28:48.278955Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'utility.desc' length=74819
+2020-09-02T04:28:48.279312Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'common.proto' length=827
+2020-09-02T04:28:48.279844Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'common.desc' length=2149
+2020-09-02T04:28:48.280220Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'filetransfer.proto' length=677
+2020-09-02T04:28:48.280788Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'filetransfer.desc' length=56692
+2020-09-02T04:28:48.281112Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'modeldefs.proto' length=1247
+2020-09-02T04:28:48.282672Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'modeldefs.desc' length=67729
+2020-09-02T04:28:48.285381Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'xosoptions.proto' length=730
+2020-09-02T04:28:48.286033Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'xosoptions.desc' length=50575
+2020-09-02T04:28:48.286522Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'xos.proto' length=320159
+2020-09-02T04:28:48.296635Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'xos.desc' length=626737
+2020-09-02T04:28:48.300757Z [debug    ] compiling                      file=dynamicload.proto need_swagger=False
+2020-09-02T04:28:48.301087Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. dynamicload.proto file=dynamicload.proto
+2020-09-02T04:28:48.953266Z [info     ] compiled                       file=dynamicload.proto
+2020-09-02T04:28:48.953645Z [debug    ] compiling                      file=utility.proto need_swagger=False
+2020-09-02T04:28:48.953960Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. utility.proto file=utility.proto
+2020-09-02T04:28:51.120034Z [info     ] compiled                       file=utility.proto
+2020-09-02T04:28:51.120625Z [debug    ] compiling                      file=common.proto need_swagger=False
+2020-09-02T04:28:51.121463Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. common.proto file=common.proto
+2020-09-02T04:28:51.924593Z [info     ] compiled                       file=common.proto
+2020-09-02T04:28:51.925154Z [debug    ] compiling                      file=xos.proto need_swagger=True
+2020-09-02T04:28:51.925372Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. xos.proto file=xos.proto
+2020-09-02T04:28:53.724189Z [info     ] compiled                       file=xos.proto
+2020-09-02T04:28:53.724625Z [debug    ] compiling                      file=filetransfer.proto need_swagger=False
+2020-09-02T04:28:53.724906Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. filetransfer.proto file=filetransfer.proto
+filetransfer.proto: warning: Import google/protobuf/empty.proto but not used.
+filetransfer.proto: warning: Import common.proto but not used.
+2020-09-02T04:28:54.695639Z [info     ] compiled                       file=filetransfer.proto
+2020-09-02T04:28:54.696033Z [debug    ] compiling                      file=modeldefs.proto need_swagger=False
+2020-09-02T04:28:54.696550Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. modeldefs.proto file=modeldefs.proto
+2020-09-02T04:28:55.140384Z [info     ] compiled                       file=modeldefs.proto
+2020-09-02T04:28:55.140877Z [debug    ] compiling                      file=xosoptions.proto need_swagger=False
+2020-09-02T04:28:55.141089Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. xosoptions.proto file=xosoptions.proto
+2020-09-02T04:28:55.506620Z [info     ] compiled                       file=xosoptions.proto
+2020-09-02T04:28:55.507018Z [debug    ] test-import                    modname=common_pb2
+2020-09-02T04:28:55.509321Z [debug    ] test-import                    modname=xosoptions_pb2
+2020-09-02T04:28:55.512156Z [debug    ] test-import                    modname=utility_pb2
+2020-09-02T04:28:55.527709Z [debug    ] test-import                    modname=filetransfer_pb2
+2020-09-02T04:28:55.530117Z [debug    ] test-import                    modname=dynamicload_pb2
+2020-09-02T04:28:55.535703Z [debug    ] test-import                    modname=xos_pb2
+2020-09-02T04:28:55.961441Z [debug    ] test-import                    modname=modeldefs_pb2
+2020-09-02T04:28:56.003627Z [info     ] Creating convenience methods directory convenience_methods_dir=/var/run/xosapi/convenience
+2020-09-02T04:28:56.124427Z [info     ] Saving convenience methods     methods=[u'voltserviceinstance.py', u'voltservice.py', u'rcordsubscriber.py', u'fabric_crossconnect_service.py', u'onos_service.py']
+2020-09-02T04:28:56.124827Z [debug    ] Saving convenience method      method=u'voltserviceinstance.py'
+2020-09-02T04:28:56.125148Z [debug    ] Saving convenience method      method=u'voltservice.py'
+2020-09-02T04:28:56.125426Z [debug    ] Saving convenience method      method=u'rcordsubscriber.py'
+2020-09-02T04:28:56.125697Z [debug    ] Saving convenience method      method=u'fabric_crossconnect_service.py'
+2020-09-02T04:28:56.125977Z [debug    ] Saving convenience method      method=u'onos_service.py'
+2020-09-02T04:28:56.126346Z [info     ] Loading convenience methods    api_convenience_dir=/usr/lib/python2.7/site-packages/xosapi/convenience
+2020-09-02T04:28:56.126653Z [debug    ] Loading: slice.py
+2020-09-02T04:28:56.140423Z [debug    ] Loading: tag.py
+2020-09-02T04:28:56.141179Z [debug    ] Loading: instance.py
+2020-09-02T04:28:56.150199Z [debug    ] Loading: serviceinstance.py
+2020-09-02T04:28:56.151043Z [debug    ] Loading: user.py
+2020-09-02T04:28:56.151686Z [debug    ] Loading: controller.py
+2020-09-02T04:28:56.152203Z [debug    ] Loading: __init__.py
+2020-09-02T04:28:56.152660Z [debug    ] Loading: service.py
+2020-09-02T04:28:56.153221Z [debug    ] Loading: addresspool.py
+2020-09-02T04:28:56.153758Z [debug    ] Loading: onosapp.py
+2020-09-02T04:28:56.154535Z [debug    ] Loading: privilege.py
+2020-09-02T04:28:56.155069Z [debug    ] Loading: port.py
+2020-09-02T04:28:56.155589Z [debug    ] Loading: network.py
+2020-09-02T04:28:56.156134Z [info     ] Loading convenience methods    api_convenience_dir=/var/run/xosapi/convenience
+2020-09-02T04:28:56.156400Z [debug    ] Loading: voltserviceinstance.py
+2020-09-02T04:28:56.157018Z [debug    ] Loading: rcordsubscriber.py
+2020-09-02T04:28:56.157507Z [debug    ] Loading: fabric_crossconnect_service.py
+2020-09-02T04:28:56.158945Z [debug    ] Loading: onos_service.py
+2020-09-02T04:28:56.159412Z [debug    ] Loading: voltservice.py
+2020-09-02T04:28:56.160028Z [info     ] Service version is 2.0.1       core_version=>=4.0.0
+2020-09-02T04:28:56.160354Z [info     ] Calling Loadmodels
+2020-09-02T04:28:58.039489Z [info     ] Back from Loadmodels
+2020-09-02T04:28:58.045095Z [info     ] required_models, found:        models=RCORDSubscriber, ONUDevice
+2020-09-02T04:28:58.045982Z [warning  ] required_models: missing       models=DtWorkflowDriverService, DtWorkflowDriverServiceInstance
+2020-09-02T04:29:03.282297Z [error    ] exception in NoOp              e=<_Rendezvous of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "Transport closed"
+	debug_error_string = "{"created":"@1599020943.280449045","description":"Error received from peer","file":"src/core/lib/surface/call.cc","file_line":1039,"grpc_message":"Transport closed","grpc_status":14}"
+>
+Traceback (most recent call last):
+  File "/usr/lib/python2.7/site-packages/xossynchronizer/modelaccessor.py", line 153, in keep_trying
+    client.utility.NoOp(Empty())
+  File "/usr/lib/python2.7/site-packages/grpc/_channel.py", line 549, in __call__
+    return _end_unary_response_blocking(state, call, False, None)
+  File "/usr/lib/python2.7/site-packages/grpc/_channel.py", line 466, in _end_unary_response_blocking
+    raise _Rendezvous(state, None, None, deadline)
+_Rendezvous: <_Rendezvous of RPC that terminated with:
+	status = StatusCode.UNAVAILABLE
+	details = "Transport closed"
+	debug_error_string = "{"created":"@1599020943.280449045","description":"Error received from peer","file":"src/core/lib/surface/call.cc","file_line":1039,"grpc_message":"Transport closed","grpc_status":14}"
+>
+2020-09-02T04:29:03.285013Z [info     ] restarting synchronizer
+2020-09-02T04:29:06.045130Z [info     ] Connecting to the gRPC API
+2020-09-02T04:29:06.515206Z [debug    ] starting
+2020-09-02T04:29:06.515524Z [info     ] started
+2020-09-02T04:29:06.515839Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:07.037820Z [info     ] grpc-endpoint-not-available
+2020-09-02T04:29:07.038918Z [error    ] not-available                  retry_in=0.05
+2020-09-02T04:29:07.090756Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:07.592523Z [info     ] grpc-endpoint-not-available
+2020-09-02T04:29:07.592865Z [error    ] not-available                  retry_in=0.1
+2020-09-02T04:29:07.693168Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:08.195734Z [info     ] grpc-endpoint-not-available
+2020-09-02T04:29:08.196168Z [error    ] not-available                  retry_in=0.2
+2020-09-02T04:29:08.396701Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:08.898368Z [info     ] grpc-endpoint-not-available
+2020-09-02T04:29:08.898799Z [error    ] not-available                  retry_in=0.5
+2020-09-02T04:29:09.399241Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:09.900882Z [info     ] grpc-endpoint-not-available
+2020-09-02T04:29:09.901245Z [error    ] not-available                  retry_in=1
+2020-09-02T04:29:10.902388Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:11.408444Z [info     ] grpc-endpoint-not-available
+2020-09-02T04:29:11.415513Z [error    ] not-available                  retry_in=2
+2020-09-02T04:29:13.416483Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:13.924600Z [info     ] grpc-endpoint-not-available
+2020-09-02T04:29:13.924905Z [error    ] not-available                  retry_in=5
+2020-09-02T04:29:18.929226Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:19.431011Z [info     ] grpc-endpoint-not-available
+2020-09-02T04:29:19.431654Z [error    ] not-available                  retry_in=5
+2020-09-02T04:29:24.435979Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:24.939049Z [info     ] grpc-endpoint-not-available
+2020-09-02T04:29:24.939494Z [error    ] not-available                  retry_in=5
+2020-09-02T04:29:29.943609Z [info     ] securely connecting            endpoint=xos-core:50051
+2020-09-02T04:29:30.487612Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'dynamicload.proto' length=3040
+2020-09-02T04:29:30.488348Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'dynamicload.desc' length=70182
+2020-09-02T04:29:30.488661Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'utility.proto' length=3450
+2020-09-02T04:29:30.489270Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'utility.desc' length=74819
+2020-09-02T04:29:30.489575Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'common.proto' length=827
+2020-09-02T04:29:30.489870Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'common.desc' length=2149
+2020-09-02T04:29:30.490138Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'filetransfer.proto' length=677
+2020-09-02T04:29:30.490629Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'filetransfer.desc' length=56692
+2020-09-02T04:29:30.490942Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'modeldefs.proto' length=1247
+2020-09-02T04:29:30.491532Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'modeldefs.desc' length=67729
+2020-09-02T04:29:30.491839Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'xosoptions.proto' length=730
+2020-09-02T04:29:30.492321Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'xosoptions.desc' length=50575
+2020-09-02T04:29:30.492608Z [debug    ] saving-proto                   dir=/tmp/xos_grpc_protos fname=u'xos.proto' length=337538
+2020-09-02T04:29:30.495618Z [debug    ] saving-descriptor              dir=/tmp/xos_grpc_protos fname=u'xos.desc' length=657069
+2020-09-02T04:29:30.496354Z [debug    ] compiling                      file=dynamicload.proto need_swagger=False
+2020-09-02T04:29:30.496595Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. dynamicload.proto file=dynamicload.proto
+2020-09-02T04:29:30.833494Z [info     ] compiled                       file=dynamicload.proto
+2020-09-02T04:29:30.835544Z [debug    ] compiling                      file=utility.proto need_swagger=False
+2020-09-02T04:29:30.835806Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. utility.proto file=utility.proto
+2020-09-02T04:29:31.201182Z [info     ] compiled                       file=utility.proto
+2020-09-02T04:29:31.201518Z [debug    ] compiling                      file=common.proto need_swagger=False
+2020-09-02T04:29:31.201772Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. common.proto file=common.proto
+2020-09-02T04:29:31.513114Z [info     ] compiled                       file=common.proto
+2020-09-02T04:29:31.513440Z [debug    ] compiling                      file=xos.proto need_swagger=True
+2020-09-02T04:29:31.513674Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. xos.proto file=xos.proto
+2020-09-02T04:29:33.507973Z [info     ] compiled                       file=xos.proto
+2020-09-02T04:29:33.508334Z [debug    ] compiling                      file=filetransfer.proto need_swagger=False
+2020-09-02T04:29:33.508560Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. filetransfer.proto file=filetransfer.proto
+filetransfer.proto: warning: Import google/protobuf/empty.proto but not used.
+filetransfer.proto: warning: Import common.proto but not used.
+2020-09-02T04:29:34.559966Z [info     ] compiled                       file=filetransfer.proto
+2020-09-02T04:29:34.560985Z [debug    ] compiling                      file=modeldefs.proto need_swagger=False
+2020-09-02T04:29:34.561279Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. modeldefs.proto file=modeldefs.proto
+2020-09-02T04:29:35.168103Z [info     ] compiled                       file=modeldefs.proto
+2020-09-02T04:29:35.168468Z [debug    ] compiling                      file=xosoptions.proto need_swagger=False
+2020-09-02T04:29:35.168700Z [debug    ] executing                      cmd=cd /tmp/xos_grpc_protos && env PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins PYTHONPATH=/usr/lib/python2.7/site-packages/xosapi/chameleon_client python -m grpc.tools.protoc -I. -I /usr/lib/python2.7/site-packages/xosapi/chameleon_client/protos --python_out=. --grpc_python_out=. --plugin=protoc-gen-gw=/usr/lib/python2.7/site-packages/xosapi/chameleon_client/protoc_plugins/gw_gen.py --gw_out=. xosoptions.proto file=xosoptions.proto
+2020-09-02T04:29:36.183973Z [info     ] compiled                       file=xosoptions.proto
+2020-09-02T04:29:36.184417Z [debug    ] test-import                    modname=common_pb2
+2020-09-02T04:29:36.196501Z [debug    ] test-import                    modname=xosoptions_pb2
+2020-09-02T04:29:36.199393Z [debug    ] test-import                    modname=utility_pb2
+2020-09-02T04:29:36.207039Z [debug    ] test-import                    modname=filetransfer_pb2
+2020-09-02T04:29:36.227719Z [debug    ] test-import                    modname=dynamicload_pb2
+2020-09-02T04:29:36.319068Z [debug    ] test-import                    modname=xos_pb2
+2020-09-02T04:29:37.112481Z [debug    ] test-import                    modname=modeldefs_pb2
+2020-09-02T04:29:37.139232Z [info     ] reconnected                    after_retries=9
+2020-09-02T04:29:37.298018Z [info     ] Saving convenience methods     methods=[u'voltserviceinstance.py', u'voltservice.py', u'rcordsubscriber.py', u'fabric_crossconnect_service.py', u'onos_service.py']
+2020-09-02T04:29:37.298478Z [debug    ] Saving convenience method      method=u'voltserviceinstance.py'
+2020-09-02T04:29:37.298924Z [debug    ] Saving convenience method      method=u'voltservice.py'
+2020-09-02T04:29:37.299345Z [debug    ] Saving convenience method      method=u'rcordsubscriber.py'
+2020-09-02T04:29:37.304917Z [debug    ] Saving convenience method      method=u'fabric_crossconnect_service.py'
+2020-09-02T04:29:37.305639Z [debug    ] Saving convenience method      method=u'onos_service.py'
+2020-09-02T04:29:37.306709Z [info     ] Loading convenience methods    api_convenience_dir=/usr/lib/python2.7/site-packages/xosapi/convenience
+2020-09-02T04:29:37.307737Z [debug    ] Loading: slice.py
+2020-09-02T04:29:37.310051Z [debug    ] Loading: tag.py
+2020-09-02T04:29:37.311142Z [debug    ] Loading: instance.py
+2020-09-02T04:29:37.313497Z [debug    ] Loading: serviceinstance.py
+2020-09-02T04:29:37.317772Z [debug    ] Loading: user.py
+2020-09-02T04:29:37.323239Z [debug    ] Loading: controller.py
+2020-09-02T04:29:37.323778Z [debug    ] Loading: __init__.py
+2020-09-02T04:29:37.324674Z [debug    ] Loading: service.py
+2020-09-02T04:29:37.325349Z [debug    ] Loading: addresspool.py
+2020-09-02T04:29:37.326873Z [debug    ] Loading: onosapp.py
+2020-09-02T04:29:37.328676Z [debug    ] Loading: privilege.py
+2020-09-02T04:29:37.329076Z [debug    ] Loading: port.py
+2020-09-02T04:29:37.330222Z [debug    ] Loading: network.py
+2020-09-02T04:29:37.333913Z [info     ] Loading convenience methods    api_convenience_dir=/var/run/xosapi/convenience
+2020-09-02T04:29:37.334336Z [debug    ] Loading: voltserviceinstance.py
+2020-09-02T04:29:37.335365Z [debug    ] Loading: rcordsubscriber.py
+2020-09-02T04:29:37.336822Z [debug    ] Loading: fabric_crossconnect_service.py
+2020-09-02T04:29:37.338067Z [debug    ] Loading: onos_service.py
+2020-09-02T04:29:37.342667Z [debug    ] Loading: voltservice.py
+2020-09-02T04:29:37.344520Z [info     ] Service version is 2.0.1       core_version=>=4.0.0
+2020-09-02T04:29:37.346878Z [info     ] Calling Loadmodels
+2020-09-02T04:29:37.450378Z [info     ] Back from Loadmodels
+2020-09-02T04:29:37.450995Z [info     ] required_models, found:        models=DtWorkflowDriverService, DtWorkflowDriverServiceInstance, RCORDSubscriber, ONUDevice
+2020-09-02T04:29:43.517501Z [info     ] Skipping observer thread due to no steps dir. synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:43.517909Z [info     ] Skipping pull step engine due to no pull_steps_dir dir. synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:43.518182Z [info     ] Starting XOSEventEngine        event_steps_dir=/opt/xos/synchronizers/dt-workflow-driver/event_steps synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:43.518618Z [info     ] Loading event steps            event_step_dir=/opt/xos/synchronizers/dt-workflow-driver/event_steps synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:43.532840Z [info     ] Loaded event steps             steps=[<class 'pppoe_event.SubscriberPppoeEventStep'>, <class 'onu_event.ONUEventStep'>] synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:43.534724Z [info     ] Waiting for events             pattern=None step=SubscriberPppoeEventStep synchronizer_name=dt-workflow-driver topic=['bng.pppoe']
+2020-09-02T04:29:43.539502Z [info     ] Waiting for events             pattern=None step=ONUEventStep synchronizer_name=dt-workflow-driver topic=['onu.events']
+2020-09-02T04:29:43.569625Z [info     ] Loaded model policies          policies=[<class 'model_policy_dt_workflow_driver_whitelistentry.DtWorkflowDriverWhiteListEntryPolicy'>, <class 'model_policy_dt_workflow_driver_serviceinstance.DtWorkflowDriverServiceInstancePolicy'>] synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:49.717767Z [debug    ] Reached end of kafka topic bng.pppoe, partition: 0, offset: 0 synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:49.787384Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f737215eb00> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:49.792943Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:22:53.609356Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:49.867153Z [debug    ] DtHelpers: Created new DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-0> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:49.867565Z [info     ] onu.events: activated onu      synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:22:53.609356Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.023345Z [debug    ] save(): is new                 classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:29:50.172532Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f737215efc8> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.172878Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:22:53.816065Z', u'serialNumber': u'ETRI00000003-2', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'17', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.173130Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.173336Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f73721618c0> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.174033Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:22:54.272465Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.195656Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.196084Z [info     ] onu.events: activated onu      synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:22:54.272465Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.196900Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372161f38> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.197177Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:22:54.984895Z', u'serialNumber': u'ETRI00000003-3', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'18', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.197614Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.197853Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f73721628c0> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.198115Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:22:55.441201Z', u'serialNumber': u'ETRI00000003-4', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'19', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.198439Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.199327Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372162f80> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.199640Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:00.240204Z', u'serialNumber': u'ETRI00000004-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'32', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.253385Z [debug    ] DtHelpers: Created new DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-0> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.254363Z [info     ] onu.events: activated onu      synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:00.240204Z', u'serialNumber': u'ETRI00000004-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'32', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.255928Z [debug    ] save(): is new                 classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:29:50.441326Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372161290> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.441841Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:02.976756Z', u'serialNumber': u'ETRI00000004-2', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'33', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.442108Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.442319Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372164200> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.442551Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:02.991695Z', u'serialNumber': u'ETRI00000002-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'48', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.469109Z [debug    ] DtHelpers: Created new DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-0> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.469436Z [info     ] onu.events: activated onu      synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:02.991695Z', u'serialNumber': u'ETRI00000002-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'48', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.469855Z [debug    ] save(): is new                 classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:29:50.706678Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f73721635a8> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.707029Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:03.939553Z', u'serialNumber': u'ETRI00000004-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'32', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.738379Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-69> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.739247Z [info     ] onu.events: activated onu      synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:03.939553Z', u'serialNumber': u'ETRI00000004-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'32', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.740703Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f73721653f8> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.741408Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:03.940140Z', u'serialNumber': u'ETRI00000002-2', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'49', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.742548Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.744664Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372165d40> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.745568Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:03.944063Z', u'serialNumber': u'ETRI00000004-3', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'34', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.746487Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.748515Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372167440> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.749959Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:05.007811Z', u'serialNumber': u'ETRI00000002-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'48', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.923267Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-70> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.925527Z [info     ] onu.events: activated onu      synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:05.007811Z', u'serialNumber': u'ETRI00000002-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'48', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.926169Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372167ab8> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.926630Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:05.007996Z', u'serialNumber': u'ETRI00000002-3', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'50', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.927072Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.927530Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372168440> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.927974Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:05.008119Z', u'serialNumber': u'ETRI00000001-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'64', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.981993Z [debug    ] DtHelpers: Created new DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-0> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:50.982741Z [info     ] onu.events: activated onu      synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:05.008119Z', u'serialNumber': u'ETRI00000001-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'64', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:50.983304Z [debug    ] save(): is new                 classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:29:51.122739Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f73721647a0> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.123288Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:06.231991Z', u'serialNumber': u'ETRI00000004-4', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'35', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:51.123736Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.124162Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f737216a680> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.124567Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:06.232192Z', u'serialNumber': u'ETRI00000002-4', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'51', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:51.125251Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.126070Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f737216ad40> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.126498Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:06.955991Z', u'serialNumber': u'ETRI00000001-2', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'65', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:51.126944Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.127265Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372169440> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.127621Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:06.983159Z', u'serialNumber': u'ETRI00000001-3', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'66', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:51.128029Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.128394Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372169b00> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.128820Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:23:08.258925Z', u'serialNumber': u'ETRI00000001-4', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'67', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:51.129347Z [info     ] Skip event, only consider [serialNumber]-1 events synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.129635Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f737216b200> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.129983Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T03:35:12.784322Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:51.149012Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.149505Z [info     ] onu.events: disabled onu, resetting the subscriber synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T03:35:12.784322Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:51.150134Z [debug    ] save(): updated                changed_fields=['oper_onu_status'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:29:51.322638Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f737216a248> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.323085Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:35:32.398717Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:51.335284Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:51.335690Z [info     ] onu.events: activated onu      synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T03:35:32.398717Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:29:51.336663Z [debug    ] save(): updated                changed_fields=['oper_onu_status'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:29:51.446555Z [debug    ] Reached end of kafka topic onu.events, partition: 0, offset: 21 synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:53.741811Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-70> method=handle_create policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:53.742166Z [debug    ] MODEL_POLICY: handle_create for DtWorkflowDriverServiceInstance 70 
+2020-09-02T04:29:53.742386Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 70  authentication_state=u'AWAITING' onu_state=u'AWAITING'
+2020-09-02T04:29:53.802065Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-70 pk=70 serial_number=u'ETRI00000002-1'
+2020-09-02T04:29:53.836600Z [debug    ] MODEL_POLICY: setting ONUDevice [ETRI00000002] admin_state to DISABLED
+2020-09-02T04:29:54.008371Z [debug    ] save(): updated                changed_fields=['admin_state'] classname=ONUDevice syncstep=/opt/xos/synchronizers/dt-workflow-driver/model_policies/model_policy_dt_workflow_driver_serviceinstance.py:handle_create()
+2020-09-02T04:29:54.462100Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000002-1'
+2020-09-02T04:29:54.596774Z [debug    ] save(): updated                changed_fields=['ip_address', 'admin_onu_state', 'pppoe_session_id', 'status_message', 'mac_address'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/model_policies/model_policy_dt_workflow_driver_serviceinstance.py:handle_create()
+2020-09-02T04:29:55.025286Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-70> method=handle_create policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:55.025846Z [debug    ] save(): updated                changed_fields=['policy_code', 'policed', 'policy_status'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:29:55.603360Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-70> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:55.603802Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-68> method=handle_create policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:55.604345Z [debug    ] MODEL_POLICY: handle_create for DtWorkflowDriverServiceInstance 68 
+2020-09-02T04:29:55.604678Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 68  authentication_state=u'AWAITING' onu_state=u'AWAITING'
+2020-09-02T04:29:55.645849Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-68 pk=68 serial_number=u'ETRI00000003-1'
+2020-09-02T04:29:55.682287Z [debug    ] MODEL_POLICY: setting ONUDevice [ETRI00000003] admin_state to DISABLED
+2020-09-02T04:29:55.682938Z [debug    ] save(): updated                changed_fields=['admin_state'] classname=ONUDevice syncstep=/opt/xos/synchronizers/dt-workflow-driver/model_policies/model_policy_dt_workflow_driver_serviceinstance.py:handle_create()
+2020-09-02T04:29:55.907307Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000003-1'
+2020-09-02T04:29:55.908082Z [debug    ] save(): updated                changed_fields=['ip_address', 'admin_onu_state', 'pppoe_session_id', 'status_message', 'mac_address'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/model_policies/model_policy_dt_workflow_driver_serviceinstance.py:handle_create()
+2020-09-02T04:29:56.461397Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-68> method=handle_create policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:56.462023Z [debug    ] save(): updated                changed_fields=['policy_code', 'policed', 'policy_status'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:29:57.026576Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:57.027967Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-69> method=handle_create policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:57.028756Z [debug    ] MODEL_POLICY: handle_create for DtWorkflowDriverServiceInstance 69 
+2020-09-02T04:29:57.029073Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 69  authentication_state=u'AWAITING' onu_state=u'AWAITING'
+2020-09-02T04:29:57.076681Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-69 pk=69 serial_number=u'ETRI00000004-1'
+2020-09-02T04:29:57.105985Z [debug    ] MODEL_POLICY: setting ONUDevice [ETRI00000004] admin_state to DISABLED
+2020-09-02T04:29:57.106878Z [debug    ] save(): updated                changed_fields=['admin_state'] classname=ONUDevice syncstep=/opt/xos/synchronizers/dt-workflow-driver/model_policies/model_policy_dt_workflow_driver_serviceinstance.py:handle_create()
+2020-09-02T04:29:57.435129Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000004-1'
+2020-09-02T04:29:57.436331Z [debug    ] save(): updated                changed_fields=['ip_address', 'admin_onu_state', 'pppoe_session_id', 'status_message', 'mac_address'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/model_policies/model_policy_dt_workflow_driver_serviceinstance.py:handle_create()
+2020-09-02T04:29:58.495185Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-69> method=handle_create policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:58.495885Z [debug    ] save(): updated                changed_fields=['policy_code', 'policed', 'policy_status'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:29:59.335576Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-69> synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:59.336867Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-71> method=handle_create policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:29:59.337522Z [debug    ] MODEL_POLICY: handle_create for DtWorkflowDriverServiceInstance 71 
+2020-09-02T04:29:59.338333Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 71  authentication_state=u'AWAITING' onu_state=u'AWAITING'
+2020-09-02T04:29:59.425266Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-71 pk=71 serial_number=u'ETRI00000001-1'
+2020-09-02T04:30:00.060096Z [debug    ] MODEL_POLICY: setting ONUDevice [ETRI00000001] admin_state to DISABLED
+2020-09-02T04:30:00.060856Z [debug    ] save(): updated                changed_fields=['admin_state'] classname=ONUDevice syncstep=/opt/xos/synchronizers/dt-workflow-driver/model_policies/model_policy_dt_workflow_driver_serviceinstance.py:handle_create()
+2020-09-02T04:30:01.292036Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000001-1'
+2020-09-02T04:30:01.292817Z [debug    ] save(): updated                changed_fields=['ip_address', 'admin_onu_state', 'pppoe_session_id', 'status_message', 'mac_address'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/model_policies/model_policy_dt_workflow_driver_serviceinstance.py:handle_create()
+2020-09-02T04:30:01.684345Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-71> method=handle_create policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:01.685116Z [debug    ] save(): updated                changed_fields=['policy_code', 'policed', 'policy_status'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:30:02.454004Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-71> synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:17.403546Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372168a28> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:17.403921Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:30:17.401506Z', u'serialNumber': u'ETRI00000001-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'64', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:30:17.975742Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-71> synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:17.976842Z [info     ] onu.events: disabled onu, resetting the subscriber synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:30:17.401506Z', u'serialNumber': u'ETRI00000001-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'64', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:30:17.977337Z [debug    ] save(): updated                changed_fields=['oper_onu_status'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:30:20.037405Z [debug    ] Reached end of kafka topic onu.events, partition: 0, offset: 22 synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:20.037765Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f737201ff80> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:20.038047Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:30:19.179749Z', u'serialNumber': u'ETRI00000002-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'48', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:30:20.342534Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-70> synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:20.342871Z [info     ] onu.events: disabled onu, resetting the subscriber synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:30:19.179749Z', u'serialNumber': u'ETRI00000002-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'48', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:30:20.343351Z [debug    ] save(): updated                changed_fields=['oper_onu_status'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:30:20.794703Z [debug    ] Reached end of kafka topic onu.events, partition: 0, offset: 23 synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:20.839371Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f737216fd40> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:20.847977Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:30:19.821341Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:30:20.985680Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:20.986010Z [info     ] onu.events: disabled onu, resetting the subscriber synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:30:19.821341Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:30:20.986507Z [debug    ] save(): updated                changed_fields=['oper_onu_status'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:30:22.778033Z [debug    ] Reached end of kafka topic onu.events, partition: 0, offset: 24 synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:23.230323Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372021bd8> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:23.238488Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:30:20.517827Z', u'serialNumber': u'ETRI00000004-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'32', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:30:23.303455Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-69> synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:23.303778Z [info     ] onu.events: disabled onu, resetting the subscriber synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:30:20.517827Z', u'serialNumber': u'ETRI00000004-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'32', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:30:23.304315Z [debug    ] save(): updated                changed_fields=['oper_onu_status'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:30:23.358078Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-70> method=handle_update policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:23.358496Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 70  authentication_state=u'AWAITING' onu_state=u'DISABLED'
+2020-09-02T04:30:23.399483Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-70 pk=70 serial_number=u'ETRI00000002-1'
+2020-09-02T04:30:23.427607Z [debug    ] MODEL_POLICY: ONUDevice [ETRI00000002] already has admin_state to DISABLED
+2020-09-02T04:30:23.477980Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000002-1'
+2020-09-02T04:30:23.478433Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-70> method=handle_update policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:23.478881Z [debug    ] save(): updated                changed_fields=['policed'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:30:24.921263Z [debug    ] Reached end of kafka topic onu.events, partition: 0, offset: 25 synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:24.929600Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-70> synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:24.936873Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-68> method=handle_update policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:24.937334Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 68  authentication_state=u'AWAITING' onu_state=u'DISABLED'
+2020-09-02T04:30:25.260466Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-68 pk=68 serial_number=u'ETRI00000003-1'
+2020-09-02T04:30:25.291130Z [debug    ] MODEL_POLICY: ONUDevice [ETRI00000003] already has admin_state to DISABLED
+2020-09-02T04:30:25.338459Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000003-1'
+2020-09-02T04:30:25.338877Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-68> method=handle_update policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:25.339315Z [debug    ] save(): updated                changed_fields=['policed'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:30:25.961268Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:25.961663Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-71> method=handle_update policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:25.962073Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 71  authentication_state=u'AWAITING' onu_state=u'DISABLED'
+2020-09-02T04:30:27.264767Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-71 pk=71 serial_number=u'ETRI00000001-1'
+2020-09-02T04:30:27.323947Z [debug    ] MODEL_POLICY: ONUDevice [ETRI00000001] already has admin_state to DISABLED
+2020-09-02T04:30:27.372315Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000001-1'
+2020-09-02T04:30:27.372737Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-71> method=handle_update policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:27.373169Z [debug    ] save(): updated                changed_fields=['policed'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:30:27.982340Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-71> synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:28.031920Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-69> method=handle_update policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:28.032316Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 69  authentication_state=u'AWAITING' onu_state=u'DISABLED'
+2020-09-02T04:30:28.154502Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-69 pk=69 serial_number=u'ETRI00000004-1'
+2020-09-02T04:30:28.192792Z [debug    ] MODEL_POLICY: ONUDevice [ETRI00000004] already has admin_state to DISABLED
+2020-09-02T04:30:28.275563Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000004-1'
+2020-09-02T04:30:28.325783Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-69> method=handle_update policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:30:28.329070Z [debug    ] save(): updated                changed_fields=['policed'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:30:28.602336Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-69> synchronizer_name=dt-workflow-driver
+2020-09-02T04:31:56.101276Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f7372021b00> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:31:56.102846Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T04:31:56.096200Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:31:56.147664Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver
+2020-09-02T04:31:56.148036Z [info     ] onu.events: activated onu      synchronizer_name=dt-workflow-driver value={u'status': u'activated', u'timestamp': u'2020-09-02T04:31:56.096200Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:31:56.148614Z [debug    ] save(): updated                changed_fields=['oper_onu_status'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:31:56.859095Z [debug    ] Reached end of kafka topic onu.events, partition: 0, offset: 26 synchronizer_name=dt-workflow-driver
+2020-09-02T04:32:00.168626Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-68> method=handle_update policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:32:00.169053Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 68  authentication_state=u'AWAITING' onu_state=u'DISABLED'
+2020-09-02T04:32:00.386480Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-68 pk=68 serial_number=u'ETRI00000003-1'
+2020-09-02T04:32:00.444398Z [debug    ] MODEL_POLICY: setting ONUDevice [ETRI00000003] admin_state to DISABLED
+2020-09-02T04:32:00.444986Z [debug    ] save(): updated                changed_fields=['admin_state'] classname=ONUDevice syncstep=/opt/xos/synchronizers/dt-workflow-driver/model_policies/model_policy_dt_workflow_driver_serviceinstance.py:handle_update()
+2020-09-02T04:32:00.616387Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000003-1'
+2020-09-02T04:32:00.617498Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-68> method=handle_update policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:32:00.617976Z [debug    ] save(): updated                changed_fields=['policed'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:32:00.699759Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver
+2020-09-02T04:32:04.345742Z [info     ] Processing event               event_msg=<xossynchronizer.event_engine.XOSKafkaMessage instance at 0x7f73720255f0> step=ONUEventStep synchronizer_name=dt-workflow-driver
+2020-09-02T04:32:04.346137Z [info     ] onu.events: received event     synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:32:04.343707Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:32:04.493962Z [debug    ] DtHelpers: Found existing DtWorkflowDriverServiceInstance si=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver
+2020-09-02T04:32:04.494312Z [info     ] onu.events: disabled onu, resetting the subscriber synchronizer_name=dt-workflow-driver value={u'status': u'disabled', u'timestamp': u'2020-09-02T04:32:04.343707Z', u'serialNumber': u'ETRI00000003-1', u'oltSerialNumber': u'ETRI_OLT_0', u'portNumber': u'16', u'deviceId': u'of:00000a0a0a0a0a00'}
+2020-09-02T04:32:04.494850Z [debug    ] save(): updated                changed_fields=['oper_onu_status'] classname=DtWorkflowDriverServiceInstance syncstep=/opt/xos/synchronizers/dt-workflow-driver/event_steps/onu_event.py:process_event()
+2020-09-02T04:32:05.556868Z [debug    ] Reached end of kafka topic onu.events, partition: 0, offset: 27 synchronizer_name=dt-workflow-driver
+2020-09-02T04:32:05.792586Z [debug    ] MODEL POLICY: calling handler  instance=<DtWorkflowDriverServiceInstance: id-68> method=handle_update policy=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:32:05.793516Z [debug    ] MODEL_POLICY: handle_update for DtWorkflowDriverServiceInstance 68  authentication_state=u'AWAITING' onu_state=u'DISABLED'
+2020-09-02T04:32:06.214819Z [warning  ] ONU not found in whitelist     model_name=DtWorkflowDriverServiceInstance object=DtWorkflowDriverServiceInstance-68 pk=68 serial_number=u'ETRI00000003-1'
+2020-09-02T04:32:06.304993Z [debug    ] MODEL_POLICY: ONUDevice [ETRI00000003] already has admin_state to DISABLED
+2020-09-02T04:32:07.948850Z [debug    ] MODEL_POLICY: subscriber does not exists for this SI, doing nothing onu_device=u'ETRI00000003-1'
+2020-09-02T04:32:07.949346Z [debug    ] MODEL POLICY: completed handler instance=<DtWorkflowDriverServiceInstance: id-68> method=handle_update policy_name=DtWorkflowDriverServiceInstancePolicy sender_name=DtWorkflowDriverServiceInstance synchronizer_name=dt-workflow-driver
+2020-09-02T04:32:07.949818Z [debug    ] save(): updated                changed_fields=['policed'] classname=DtWorkflowDriverServiceInstance syncstep=None
+2020-09-02T04:32:08.356057Z [info     ] MODEL_POLICY: Saved            o=<DtWorkflowDriverServiceInstance: id-68> synchronizer_name=dt-workflow-driver

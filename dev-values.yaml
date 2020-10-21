@@ -1,0 +1,8 @@
+images:
+  ofagent:
+    repository: deltaindex/voltha-ofagent-go
+    tag: dev
+  rw_core:
+    repository: deltaindex/voltha-rw-core
+    tag: dev
+

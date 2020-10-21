@@ -1,0 +1,14 @@
+volt:
+  image:
+    repository : 'deltaindex/volt-synchronizer'
+    tag : 'test'
+    pullPolicy: 'Always'
+  volthaGrpcUrl: "voltha-api.voltha.svc.cluster.local"
+  volthaGrpcPort: 55555
+  kafkaService: "voltha-kafka.voltha.svc:9092"
+
+sadis-server:
+  image:
+    repository: 'opencord/sadis-server'
+    tag: 'v2.0.0'
+  kafkaBroker: "voltha-kafka.voltha.svc:9092"

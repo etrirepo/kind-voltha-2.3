@@ -1,0 +1,10 @@
+volt:
+  image:
+    repository : 'deltaindex/volt-synchronizer'
+    tag : 'dev'
+
+sadis-server:
+  image:
+    repository: 'opencord/sadis-server'
+    tag: 'v2.0.0'
+  kafkaBroker: "voltha-kafka.voltha.svc:9092"
