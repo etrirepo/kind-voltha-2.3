@@ -1,7 +1,7 @@
 volt:
   image:
     repository : 'ywra/volt-synchronizer'
-    tag : 'test'
+    tag : 'dev'
     pullPolicy: 'Always'
   volthaGrpcUrl: "voltha-api.voltha.svc.cluster.local"
   volthaGrpcPort: 55555
