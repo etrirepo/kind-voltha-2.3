@@ -1,4 +1,4 @@
-2020. 10. 21. (수) 16:55:13 KST
+2020. 10. 21. (수) 17:29:35 KST
 PORTS=8181,8101,55555,5022,2379
 OPTIONS
     NAME                           = minimal
@@ -55,37 +55,6 @@ OPTIONS
     WITH_KAFKA                     = yes
     WITH_ETCD                      = yes
 INSTALL TYPE: minimal
-++ curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt
-+ curl -o /home/delta/20201021/kind-voltha/bin/kubectl -sSL https://storage.googleapis.com/kubernetes-release/release/v1.19.3/bin/linux/amd64/kubectl
-+ chmod 755 /home/delta/20201021/kind-voltha/bin/kubectl
-+ curl -sSL https://git.io/get_helm.sh
-+ DESIRED_VERSION=v2.14.3
-+ USE_SUDO=false
-+ HELM_INSTALL_DIR=/home/delta/20201021/kind-voltha/bin
-+ bash
-Downloading https://get.helm.sh/helm-v2.14.3-linux-amd64.tar.gz
-Preparing to install helm and tiller into /home/delta/20201021/kind-voltha/bin
-helm installed into /home/delta/20201021/kind-voltha/bin/helm
-tiller installed into /home/delta/20201021/kind-voltha/bin/tiller
-Run 'helm init' to configure helm.
-+ curl -o /home/delta/20201021/kind-voltha/bin/voltctl -sSL https://github.com/opencord/voltctl/releases/download/v1.3.0/voltctl-1.3.0-linux-amd64
-+ chmod 755 /home/delta/20201021/kind-voltha/bin/voltctl
-+ helm init --upgrade
-$HELM_HOME has been configured at /home/delta/.helm.
-
-Tiller (the Helm server-side component) has been installed into your Kubernetes Cluster.
-
-Please note: by default, Tiller is deployed with an insecure 'allow unauthenticated users' policy.
-To prevent this, run `helm init` with the --tiller-tls-verify flag.
-For more information on securing your installation see: https://docs.helm.sh/using_helm/#securing-your-helm-installation
-+ helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com
-"incubator" has been added to your repositories
-+ kubectl -n kube-system scale deploy tiller-deploy --replicas=0
-deployment.extensions/tiller-deploy scaled
-+ helm repo add stable https://kubernetes-charts.storage.googleapis.com
-"stable" has been added to your repositories
-+ helm repo add onf https://charts.opencord.org
-"onf" has been added to your repositories
 + helm repo update
 Hang tight while we grab the latest from your chart repositories...
 ...Skip local chart repository
@@ -93,17 +62,9 @@ Hang tight while we grab the latest from your chart repositories...
 ...Successfully got an update from the "onf" chart repository
 ...Successfully got an update from the "stable" chart repository
 Update Complete.
-+ kubectl create serviceaccount --namespace kube-system tiller
-serviceaccount/tiller created
-+ kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-clusterrolebinding.rbac.authorization.k8s.io/tiller-cluster-rule created
-+ kubectl patch deploy --namespace kube-system tiller-deploy -p '{"spec":{"template":{"spec":{"serviceAccount":"tiller"}}}}'
-deployment.extensions/tiller-deploy patched
-+ kubectl -n kube-system scale deploy tiller-deploy --replicas=1
-deployment.extensions/tiller-deploy scaled
-+ helm install -f minimal-values.yaml --set defaults.log_level=WARN --namespace voltha --name etcd-operator --set defaults.image_tag=null,images.onos.tag=dev stable/etcd-operator
++ helm install -f minimal-values.yaml --set defaults.log_level=WARN --namespace voltha --name etcd-operator --set defaults.image_tag=null,images.onos.tag=4.0.2 stable/etcd-operator
 NAME:   etcd-operator
-LAST DEPLOYED: Wed Oct 21 16:56:13 2020
+LAST DEPLOYED: Wed Oct 21 17:29:44 2020
 NAMESPACE: voltha
 STATUS: DEPLOYED
 
@@ -122,7 +83,7 @@ etcd-operator-etcd-operator-etcd-operator  0/1    1           0          0s
 
 ==> v1/Pod(related)
 NAME                                                       READY  STATUS             RESTARTS  AGE
-etcd-operator-etcd-operator-etcd-operator-9f59bcb44-9s8ls  0/1    ContainerCreating  0         0s
+etcd-operator-etcd-operator-etcd-operator-9f59bcb44-tv5m4  0/1    ContainerCreating  0         0s
 
 ==> v1/ServiceAccount
 NAME                                       SECRETS  AGE
@@ -135,9 +96,9 @@ NOTES:
   Check the etcd-operator logs
     export POD=$(kubectl get pods -l app=etcd-operator-etcd-operator-etcd-operator --namespace voltha --output name)
     kubectl logs $POD --namespace=voltha
-+ helm install -f minimal-values.yaml --set defaults.log_level=WARN --namespace default --name onos --version 3.0.1 --set defaults.image_tag=null,images.onos.tag=dev onf/onos
++ helm install -f minimal-values.yaml --set defaults.log_level=WARN --namespace default --name onos --version 3.0.1 --set defaults.image_tag=null,images.onos.tag=4.0.2 onf/onos
 NAME:   onos
-LAST DEPLOYED: Wed Oct 21 16:56:23 2020
+LAST DEPLOYED: Wed Oct 21 17:29:54 2020
 NAMESPACE: default
 STATUS: DEPLOYED
 
@@ -147,16 +108,16 @@ NAME       DATA  AGE
 onos-onos  1     1s
 
 ==> v1/Pod(related)
-NAME                  READY  STATUS             RESTARTS  AGE
-onos-9d6f48c77-dngcv  0/1    ContainerCreating  0         0s
+NAME                   READY  STATUS             RESTARTS  AGE
+onos-567d666498-rqcm2  0/1    ContainerCreating  0         1s
 
 ==> v1/Service
-NAME           TYPE       CLUSTER-IP      EXTERNAL-IP  PORT(S)         AGE
-onos-debugger  NodePort   10.103.79.110   <none>       5005:30555/TCP  1s
-onos-openflow  NodePort   10.99.197.31    <none>       6653:31653/TCP  1s
-onos-ovsdb     ClusterIP  10.106.92.176   <none>       6640/TCP        1s
-onos-ssh       NodePort   10.99.148.91    <none>       8101:30115/TCP  1s
-onos-ui        NodePort   10.100.210.220  <none>       8181:30120/TCP  1s
+NAME           TYPE       CLUSTER-IP     EXTERNAL-IP  PORT(S)         AGE
+onos-debugger  NodePort   10.108.81.71   <none>       5005:30555/TCP  1s
+onos-openflow  NodePort   10.108.58.205  <none>       6653:31653/TCP  1s
+onos-ovsdb     ClusterIP  10.111.66.32   <none>       6640/TCP        1s
+onos-ssh       NodePort   10.110.134.43  <none>       8101:30115/TCP  1s
+onos-ui        NodePort   10.109.176.51  <none>       8181:30120/TCP  1s
 
 ==> v1beta2/Deployment
 NAME  READY  UP-TO-DATE  AVAILABLE  AGE
@@ -168,40 +129,35 @@ onos  0/1    1           0          1s
 + _TAG=onos-ssh-minimal
 + bash -c 'while true; do kubectl port-forward --address 0.0.0.0 -n default service/onos-ssh 8101:8101; done'
 + mkdir -p ./onos-files
-+ grep ACTIVE
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
++ grep ACTIVE
 curl: (7) Failed to connect to 127.0.0.1 port 8181: 연결이 거부됨
 Forwarding from 0.0.0.0:8181 -> 8181
 Forwarding from 0.0.0.0:8101 -> 8101
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-E1021 16:58:06.527297   22846 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 34c2c8d1c73fb749d460b0f0dc6595498218666d8523286ba4edea0e732069a9, uid : exit status 1: 2020/10/21 16:58:06 socat[22964] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
+E1021 17:30:03.404973   19706 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 1d302e749d3b36a5b1225402262c1b26e170204fae623245b388eb8dc8323ff9, uid : exit status 1: 2020/10/21 17:30:03 socat[19812] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
 curl: (52) Empty reply from server
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-E1021 16:58:07.562524   22846 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 34c2c8d1c73fb749d460b0f0dc6595498218666d8523286ba4edea0e732069a9, uid : exit status 1: 2020/10/21 16:58:07 socat[22978] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
+E1021 17:30:04.453427   19706 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 1d302e749d3b36a5b1225402262c1b26e170204fae623245b388eb8dc8323ff9, uid : exit status 1: 2020/10/21 17:30:04 socat[19834] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
 curl: (52) Empty reply from server
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-E1021 16:58:08.612511   22846 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 34c2c8d1c73fb749d460b0f0dc6595498218666d8523286ba4edea0e732069a9, uid : exit status 1: 2020/10/21 16:58:08 socat[22997] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
+E1021 17:30:05.493854   19706 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 1d302e749d3b36a5b1225402262c1b26e170204fae623245b388eb8dc8323ff9, uid : exit status 1: 2020/10/21 17:30:05 socat[19846] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
 curl: (52) Empty reply from server
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-E1021 16:58:09.661112   22846 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 34c2c8d1c73fb749d460b0f0dc6595498218666d8523286ba4edea0e732069a9, uid : exit status 1: 2020/10/21 16:58:09 socat[23009] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
+E1021 17:30:06.533247   19706 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 1d302e749d3b36a5b1225402262c1b26e170204fae623245b388eb8dc8323ff9, uid : exit status 1: 2020/10/21 17:30:06 socat[19927] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
 curl: (52) Empty reply from server
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-E1021 16:58:10.714484   22846 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 34c2c8d1c73fb749d460b0f0dc6595498218666d8523286ba4edea0e732069a9, uid : exit status 1: 2020/10/21 16:58:10 socat[23048] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
-curl: (52) Empty reply from server
-+ curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
-+ grep ACTIVE
-Handling connection for 8181
-E1021 16:58:11.753200   22846 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 34c2c8d1c73fb749d460b0f0dc6595498218666d8523286ba4edea0e732069a9, uid : exit status 1: 2020/10/21 16:58:11 socat[23089] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
+E1021 17:30:07.585608   19706 portforward.go:400] an error occurred forwarding 8181 -> 8181: error forwarding port 8181 to pod 1d302e749d3b36a5b1225402262c1b26e170204fae623245b388eb8dc8323ff9, uid : exit status 1: 2020/10/21 17:30:07 socat[19976] E connect(5, AF=2 127.0.0.1:8181, 16): Connection refused
 curl: (52) Empty reply from server
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
@@ -215,10 +171,6 @@ curl: (22) The requested URL returned error: 404 Not Found
 + grep ACTIVE
 Handling connection for 8181
 curl: (22) The requested URL returned error: 404 Not Found
-+ grep ACTIVE
-+ curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
-Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
@@ -230,667 +182,28 @@ curl: (22) The requested URL returned error: 404 Not Found
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
-+ grep ACTIVE
-+ curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
-Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
+curl: (22) The requested URL returned error: 503 Service Unavailable
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
+curl: (22) The requested URL returned error: 503 Service Unavailable
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
+curl: (22) The requested URL returned error: 503 Service Unavailable
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
-+ curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
-+ grep ACTIVE
-Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
+curl: (22) The requested URL returned error: 503 Service Unavailable
 + grep ACTIVE
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
-+ curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
-+ grep ACTIVE
-Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
+curl: (22) The requested URL returned error: 503 Service Unavailable
 + grep ACTIVE
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
-+ grep ACTIVE
-+ curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
-Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
+curl: (22) The requested URL returned error: 503 Service Unavailable
 + curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
 + grep ACTIVE
 Handling connection for 8181
-curl: (22) The requested URL returned error: 404 Not Found
-+ curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.kafka
-+ grep ACTIVE
-Handling connection for 8181
-{"name":"org.opencord.kafka","id":195,"version":"2.3.1","category":"Integration","description":"Integration with Kafka event bus","readme":"Integration with Kafka event bus","origin":"ONF","url":"http://opencord.org","featuresRepo":"mvn:org.opencord/kafka/2.3.1/xml/features","state":"ACTIVE","features":["kafka"],"permissions":[],"requiredApps":[]}
-Handling connection for 8181
-+ curl --fail -sSL --user karaf:karaf -w '%{http_code}' -o /tmp/tmp.TTioATCWUt -X POST -H Content-Type:application/json http://127.0.0.1:8181/onos/v1/network/configuration/apps/org.opencord.kafka --data '{"kafka":{"bootstrapServers":"voltha-kafka.voltha.svc.cluster.local:9092"}}'
-RESPONSE CODE: 200
-ERROR CODE: 0
-+ curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.dhcpl2relay
-+ grep ACTIVE
-Handling connection for 8181
-{"name":"org.opencord.dhcpl2relay","id":192,"version":"2.1.0","category":"default","description":"DHCP L2 Relay Agent Application.","readme":"DHCP L2 Relay Agent Application.","origin":"Open Networking Foundation","url":"http://onosproject.org","featuresRepo":"mvn:org.opencord/dhcpl2relay-app/2.1.0/xml/features","state":"ACTIVE","features":["dhcpl2relay-app"],"permissions":[],"requiredApps":["org.opencord.sadis"]}
-Handling connection for 8181
-+ curl --fail -sSL --user karaf:karaf -w '%{http_code}' -o /tmp/tmp.M73ROq28iA -X POST -H Content-Type:application/json http://127.0.0.1:8181/onos/v1/network/configuration/apps/org.opencord.dhcpl2relay --data @onos-files/onos-dhcpl2relay.json
-RESPONSE CODE: 200
-ERROR CODE: 0
-+ curl --fail -sSL --user karaf:karaf -X GET http://127.0.0.1:8181/onos/v1/applications/org.opencord.olt
-+ grep ACTIVE
-Handling connection for 8181
-{"name":"org.opencord.olt","id":191,"version":"4.1.1","category":"Traffic Steering","description":"CORD OLT Access management application","readme":"CORD OLT Access management application","origin":"Open Networking Foundation","url":"http://onosproject.org","featuresRepo":"mvn:org.opencord/olt-app/4.1.1/xml/features","state":"ACTIVE","features":["olt-app"],"permissions":[],"requiredApps":["org.opencord.sadis"]}
-Handling connection for 8181
-+ curl --fail -sSL --user karaf:karaf -w '%{http_code}' -o /tmp/tmp.t75BDqv8Hp -X POST -H Content-Type:application/json http://127.0.0.1:8181/onos/v1/configuration/org.opencord.olt.impl.OltFlowService --data '{"enableEapol":true}'
-RESPONSE CODE: 200
-ERROR CODE: 0
-Handling connection for 8181
-+ curl --fail -sSL --user karaf:karaf -w '%{http_code}' -o /tmp/tmp.PuRljUisbk -X POST -H Content-Type:application/json http://127.0.0.1:8181/onos/v1/configuration/org.opencord.olt.impl.OltFlowService --data '{"enableDhcpOnProvisioning":true,"enableDhcpV4":true}'
-RESPONSE CODE: 200
-ERROR CODE: 0
-Handling connection for 8181
-+ curl --fail -sSL --user karaf:karaf -w '%{http_code}' -o /tmp/tmp.3lk8xJLSkN -X POST -H Content-Type:application/json http://127.0.0.1:8181/onos/v1/configuration/org.opencord.olt.impl.OltFlowService --data '{"enableIgmpOnProvisioning":false}'
-RESPONSE CODE: 200
-ERROR CODE: 0
-+ helm install -f minimal-values.yaml --set therecanbeonlyone=true --set defaults.log_level=WARN --namespace voltha --name voltha --version 2.3.1 --set defaults.image_tag=null,images.onos.tag=dev onf/voltha
-2020/10/21 16:58:48 Warning: Merging destination map for chart 'kafka'. The destination item 'resources' is a table and ignoring the source 'resources' as it has a non-table value of: <nil>
-2020/10/21 16:58:48 Warning: Building values map for chart 'kafka'. Skipped value (map[]) for 'replicas', as it is not a table.
-NAME:   voltha
-LAST DEPLOYED: Wed Oct 21 16:58:48 2020
-NAMESPACE: voltha
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1/Pod(related)
-NAME                             READY  STATUS             RESTARTS  AGE
-voltha-kafka-0                   0/1    ContainerCreating  0         0s
-voltha-ofagent-6d6cb7f68d-47rq7  0/1    ContainerCreating  0         0s
-voltha-rw-core-569dd5bd67-wtnb5  0/1    ContainerCreating  0         0s
-voltha-zookeeper-0               0/1    ContainerCreating  0         0s
-
-==> v1/Service
-NAME                       TYPE       CLUSTER-IP     EXTERNAL-IP  PORT(S)                     AGE
-voltha-api                 ClusterIP  10.105.48.116  <none>       55555/TCP                   0s
-voltha-kafka               ClusterIP  10.96.201.242  <none>       9092/TCP                    0s
-voltha-kafka-headless      ClusterIP  None           <none>       9092/TCP                    0s
-voltha-rw-core             ClusterIP  None           <none>       50057/TCP                   0s
-voltha-zookeeper           ClusterIP  10.98.193.42   <none>       2181/TCP                    0s
-voltha-zookeeper-headless  ClusterIP  None           <none>       2181/TCP,3888/TCP,2888/TCP  0s
-
-==> v1/ServiceAccount
-NAME                   SECRETS  AGE
-voltha-serviceaccount  1        0s
-
-==> v1beta1/ClusterRole
-NAME        AGE
-pod-reader  0s
-
-==> v1beta1/ClusterRoleBinding
-NAME                             AGE
-voltha-clusterrole-nisa-binding  0s
-
-==> v1beta1/Deployment
-NAME            READY  UP-TO-DATE  AVAILABLE  AGE
-voltha-ofagent  0/1    1           0          0s
-voltha-rw-core  0/1    1           0          0s
-
-==> v1beta1/PodDisruptionBudget
-NAME              MIN AVAILABLE  MAX UNAVAILABLE  ALLOWED DISRUPTIONS  AGE
-voltha-zookeeper  N/A            1                0                    0s
-
-==> v1beta1/Role
-NAME         AGE
-voltha-role  0s
-
-==> v1beta1/RoleBinding
-NAME                      AGE
-voltha-role-nisa-binding  0s
-
-==> v1beta1/StatefulSet
-NAME              READY  AGE
-voltha-kafka      0/1    0s
-voltha-zookeeper  0/1    0s
-
-==> v1beta2/EtcdCluster
-NAME                 AGE
-voltha-etcd-cluster  0s
-
-
-+ helm install -f minimal-values.yaml --set defaults.log_level=WARN --namespace voltha --name open-olt --version 2.3.1 --set defaults.image_tag=null,images.onos.tag=dev onf/voltha-adapter-openolt
-NAME:   open-olt
-LAST DEPLOYED: Wed Oct 21 17:00:42 2020
-NAMESPACE: voltha
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1/Deployment
-NAME              READY  UP-TO-DATE  AVAILABLE  AGE
-adapter-open-olt  0/1    1           0          0s
-
-==> v1/Pod(related)
-NAME                               READY  STATUS             RESTARTS  AGE
-adapter-open-olt-74fbf6cf4d-x5jqt  0/1    ContainerCreating  0         0s
-
-
-+ helm install -f minimal-values.yaml --set defaults.log_level=WARN --namespace voltha --name open-onu --version 2.3.0 --set defaults.image_tag=null,images.onos.tag=dev onf/voltha-adapter-openonu
-NAME:   open-onu
-LAST DEPLOYED: Wed Oct 21 17:00:43 2020
-NAMESPACE: voltha
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1/Deployment
-NAME              READY  UP-TO-DATE  AVAILABLE  AGE
-adapter-open-onu  0/1    1           0          0s
-
-==> v1/Pod(related)
-NAME                              READY  STATUS             RESTARTS  AGE
-adapter-open-onu-f6bbdd447-c66jp  0/1    ContainerCreating  0         0s
-
-
-+ helm install -f minimal-values.yaml --set defaults.log_level=WARN --namespace voltha --name radius --set defaults.image_tag=null,images.onos.tag=dev onf/freeradius
-NAME:   radius
-LAST DEPLOYED: Wed Oct 21 17:01:18 2020
-NAMESPACE: voltha
-STATUS: DEPLOYED
-
-RESOURCES:
-==> v1/ConfigMap
-NAME               DATA  AGE
-freeradius-config  2     0s
-
-==> v1/Deployment
-NAME               READY  UP-TO-DATE  AVAILABLE  AGE
-radius-freeradius  0/1    1           0          0s
-
-==> v1/Pod(related)
-NAME                                READY  STATUS             RESTARTS  AGE
-radius-freeradius-6b64454d75-wgn5s  0/1    ContainerCreating  0         0s
-
-==> v1/Service
-NAME               TYPE       CLUSTER-IP    EXTERNAL-IP  PORT(S)                      AGE
-radius-freeradius  ClusterIP  10.100.92.45  <none>       1812/UDP,1813/UDP,18120/TCP  0s
-
-
-+ _TAG=voltha-api-minimal
-+ bash -c 'while true; do kubectl port-forward --address 0.0.0.0 -n voltha service/voltha-api 55555:55555; done'
-+ _TAG=voltha-etcd-cluster-client-minimal
-+ bash -c 'while true; do kubectl port-forward --address 0.0.0.0 -n voltha service/voltha-etcd-cluster-client 2379:2379; done'
-+ _TAG=voltha-kafka-minimal
-+ bash -c 'while true; do kubectl port-forward --address 0.0.0.0 -n voltha service/voltha-kafka 9092:9092; done'
-+ curl --fail -sSL --user karaf:karaf -X POST http://127.0.0.1:8181/onos/v1/network/configuration/apps/org.opencord.aaa -H Content-type:application/json -d@-
-+ sed -e s/:RADIUS_SVC:/radius.voltha.svc.cluster.local/g -e s/:RADIUS_PORT:/1812/
-+ cat onos-files/onos-aaa.json
-Handling connection for 8181
-+ mkdir -p /home/delta/.volt
-+ voltctl -a v3 -k localhost:9092 -s localhost:55555 -e localhost:2379 config
-unknown flag `a'
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Forwarding from 0.0.0.0:55555 -> 50057
-Forwarding from 0.0.0.0:9092 -> 9092
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Please issue the following commands in your terminal to ensure that you
-are accessing the correct Kubernetes/Kind cluster as well as have the  
-tools required by VOLTHA in your command path.                         
-
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-export VOLTCONFIG="/home/delta/.volt/config-minimal"
-export PATH=/home/delta/20201021/kind-voltha/bin:$PATH
-
-Thank you for choosing kind-voltha for you quick cluster needs.
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
-Unable to listen on port 2379: Listeners failed to create with the following errors: [unable to create listener: Error listen tcp4 0.0.0.0:2379: bind: address already in use]
-error: unable to listen on any of the requested ports: [{2379 2379}]
+curl: (22) The requested URL returned error: 503 Service Unavailable

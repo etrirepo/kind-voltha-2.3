@@ -1,0 +1,19 @@
+20201021T082231Z
++ kill -9 22840 22846
++ kill -9 22854 22856
++ kill -9 15274 15280
++ kill -9 15288 3475
+./voltha: 줄 736: kill: (3475) - 그런 프로세스가 없음
++ kill -9 15309 15314
++ ./bin/helm delete --no-hooks --purge etcd-operator
+release "etcd-operator" deleted
++ ./bin/helm delete --no-hooks --purge onos
+release "onos" deleted
++ ./bin/helm delete --no-hooks --purge open-olt
+release "open-olt" deleted
++ ./bin/helm delete --no-hooks --purge open-onu
+release "open-onu" deleted
++ ./bin/helm delete --no-hooks --purge radius
+release "radius" deleted
++ ./bin/helm delete --no-hooks --purge voltha
+release "voltha" deleted

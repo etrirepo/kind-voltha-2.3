@@ -38,14 +38,14 @@ use_ofagent_go: true
 
 images:
   onos:
-    repository: voltha/voltha-onos
+    repository: deltaindex/voltha-onos
     # IMAGE_SELECTION
     # ---------------
     # The helm chart used to deploy ONOS is the public ONOS helm chart so,
     # there is a need to specify the exact image repository and image tag.
     # If you would like to use the "master", "voltha-2.1", or other image
     # just replace the "tag" value below.
-    tag: master
+    tag: dev
 
 # IMAGE_SELECTION
 # ---------------
@@ -53,12 +53,12 @@ images:
 # provided as a conveinence if you would like to override on a per image
 # basis. If you are using the defaults, master, or voltha-2.1 branch there
 # is no need to utilize this list.
-#  adapter_open_olt:
-#    repository: deltaindex/voltha-openolt-adapter
-#    tag: dev
+  adapter_open_olt:
+    repository: deltaindex/voltha-openolt-adapter
+    tag: dev
   adapter_open_onu:
-    repository: ywra/voltha-openonu-adapter
-    tag: test
+    repository: deltaindex/voltha-openonu-adapter
+    tag: dev
 #  adapter_simulated_olt:
 #    repository: voltha/voltha-adapter-simulated-olt
 #    tag: 2.1.1
@@ -70,16 +70,16 @@ images:
 #    tag: master
 # START_OFAGENT_GO - Comment the following block to use the Python implementation
 # of the ofagent
-#  ofagent:
-#    repository: deltaindex/voltha-ofagent-go
-#    tag: dev
+  ofagent:
+    repository: deltaindex/voltha-ofagent-go
+    tag: dev
 # END_OFAGENT_GO
 #  ofagent:
 #    repository: voltha/voltha-ofagent-py
 #    tag: 2.1.1
-#  rw_core:
-#    repository: deltaindex/voltha-rw-core
-#    tag: dev
+  rw_core:
+    repository: deltaindex/voltha-rw-core
+    tag: dev
 
 deployments:
   etcdOperator: true
