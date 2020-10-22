@@ -1,6 +1,6 @@
 volt:
   image:
-    repository : 'deltaindex/volt-synchronizer'
+    repository : 'ywra/volt-synchronizer'
     tag : 'dev'
 
 sadis-server:
