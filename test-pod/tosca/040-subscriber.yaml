@@ -42,13 +42,15 @@ topology_template:
     # Pre-provision the subscribers
 {{- range $i, $junk := until (.Values.numOlts|int) }}
 {{- range $j, $junk1 := until ($onucount) }}
+{{- $i := ( add $i 2 )}}
+{{- $j := ( add $j 8 )}}
     house_{{ $i }}-{{ $j }}:
       type: tosca.nodes.RCORDSubscriber
       properties:
         name: QQClient{{ $i }}-{{ $j }}
         status: pre-provisioned
-        c_tag: {{ add 900 $j }}
-        s_tag: {{ add 900 $i }}
+        c_tag: {{ add 111 $j }}
+        s_tag: {{ add 222 $i }}
   {{- if $.Values.bandwidthProfiles }}
         tech_profile_id: 64
   {{- end }}

@@ -1,0 +1,148 @@
+time="2020-11-11T05:38:30Z" level=info msg="BroadBand Simulator is on" AuthRetry=false CTag=900 CTagAllocation=unique ControlledActivation=default Delay=200 Dhcp=true DhcpRetry=false EnableAuth=true EnablePerf=false Events=false Igmp=false KafkaEventTopic= NumNniPerOlt=1 NumOnuPerPon=4 NumPonPerOlt=1 OltID=1 STag=901 STagAllocation=shared SadisFormat=att TotalOnus=4
+time="2020-11-11T05:38:30Z" level=debug msg=CreateOLT ID=1 NumNni=1 NumOnuPerPon=4 NumPon=1 module=OLT
+time="2020-11-11T05:38:30Z" level=info msg="Successfully activated DHCP Server" module=NNI
+time="2020-11-11T05:38:30Z" level=debug msg="OLT listening on :50060" module=OLT
+time="2020-11-11T05:38:30Z" level=info msg="NNI Channel created" IntfId=0 OperState=down Type=nni module=OLT
+time="2020-11-11T05:38:30Z" level=debug msg="Changing OLT InternalState from created to initialized" module=OLT
+time="2020-11-11T05:38:30Z" level=debug msg="Created OLT with id: 1"
+time="2020-11-11T05:38:30Z" level=info msg="Start listening on NNI for packets" module=NNI
+time="2020-11-11T05:38:30Z" level=debug msg="Started APIService"
+time="2020-11-11T05:38:30Z" level=info msg="SADIS server listening on :50074" module=SADIS
+time="2020-11-11T05:38:30Z" level=debug msg="APIServer listening on :50070"
+time="2020-11-11T05:38:30Z" level=debug msg="Legacy APIServer listening on :50072"
+time="2020-11-11T05:38:30Z" level=info msg="REST API server listening on :50071"
+time="2020-11-11T05:38:30Z" level=info msg="legacy REST API server listening on :50073" module=GrpcApiServer
+time="2020-11-11T05:39:53Z" level=info msg="OLT receives GetDeviceInfo call from VOLTHA" PonPorts=1 module=OLT oltId=1
+time="2020-11-11T05:39:53Z" level=info msg="OLT receives EnableIndication call from VOLTHA" module=OLT oltId=1
+time="2020-11-11T05:39:53Z" level=debug msg="Enable OLT called" module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Started Processing Packets arriving from the NNI" module=OLT nniChannel=0xc0002f0180
+time="2020-11-11T05:39:53Z" level=debug msg="Starting OLT Indication Channel" module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Changing OLT InternalState from initialized to enabled" module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Changing OLT OperState from down to up" module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Sent Indication_OltInd" OperState=up module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Starting OMCI Indication Channel" module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Changing NNI OperState from down to up" module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Sent Indication_IntfOperInd for NNI" IntfId=0 OperState=up Type=nni module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Changing PON Port OperState from down to up" ID=0 module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Enable OLT Done" module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Sent Indication_IntfInd" IntfId=0 OperState=up module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Sent Indication_IntfOperInd for PON" IntfId=0 OperState=up Type=pon module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Changing PON Port InternalState from created to enabled" ID=0 module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU OperState from down to up" ID=0 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU InternalState from created to initialized" IntfId=0 OnuId=0 OnuSn=ETRI00010001 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU InternalState from initialized to discovered" IntfId=0 OnuId=0 OnuSn=ETRI00010001 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU OperState from down to up" ID=0 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU InternalState from created to initialized" IntfId=0 OnuId=0 OnuSn=ETRI00010002 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU InternalState from initialized to discovered" IntfId=0 OnuId=0 OnuSn=ETRI00010002 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU OperState from down to up" ID=0 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU InternalState from created to initialized" IntfId=0 OnuId=0 OnuSn=ETRI00010003 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU InternalState from initialized to discovered" IntfId=0 OnuId=0 OnuSn=ETRI00010003 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU OperState from down to up" ID=0 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU InternalState from created to initialized" IntfId=0 OnuId=0 OnuSn=ETRI00010004 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU InternalState from initialized to discovered" IntfId=0 OnuId=0 OnuSn=ETRI00010004 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Starting ONU Indication Channel" module=ONU onuID=0 onuSN=ETRI00010001 ponPort=0
+time="2020-11-11T05:39:53Z" level=debug msg="Sent Indication_OnuDiscInd" IntfId=0 OnuId=0 OnuSn=ETRI00010001 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Starting ONU Indication Channel" module=ONU onuID=0 onuSN=ETRI00010004 ponPort=0
+time="2020-11-11T05:39:53Z" level=debug msg="Starting ONU Indication Channel" module=ONU onuID=0 onuSN=ETRI00010002 ponPort=0
+time="2020-11-11T05:39:53Z" level=debug msg="Starting ONU Indication Channel" module=ONU onuID=0 onuSN=ETRI00010003 ponPort=0
+time="2020-11-11T05:39:53Z" level=info msg="Received ActivateOnu call from VOLTHA" OnuSn=ETRI00010001 module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Storing OnuId " IntfId=0 OnuId=1 SerialNumber=ETRI00010001 module=ONU
+time="2020-11-11T05:39:53Z" level=info msg="Failed to transition ONU.OperState to enabled state: event enable inappropriate in current state up" IntfId=0 OnuId=1 OnuSn=ETRI00010001 module=OLT
+time="2020-11-11T05:39:53Z" level=debug msg="Changing ONU InternalState from discovered to enabled" IntfId=0 OnuId=1 OnuSn=ETRI00010001 module=ONU
+time="2020-11-11T05:39:53Z" level=debug msg="Sent Indication_OnuInd" AdminState=up IntfId=0 OnuId=1 OnuSn=ETRI00010001 OperState=up module=ONU
+time="2020-11-11T05:39:54Z" level=debug msg="Sent Indication_OnuDiscInd" IntfId=0 OnuId=0 OnuSn=ETRI00010002 module=ONU
+time="2020-11-11T05:39:54Z" level=info msg="Received ActivateOnu call from VOLTHA" OnuSn=ETRI00010002 module=OLT
+time="2020-11-11T05:39:54Z" level=debug msg="Storing OnuId " IntfId=0 OnuId=2 SerialNumber=ETRI00010002 module=ONU
+time="2020-11-11T05:39:54Z" level=info msg="Failed to transition ONU.OperState to enabled state: event enable inappropriate in current state up" IntfId=0 OnuId=2 OnuSn=ETRI00010002 module=OLT
+time="2020-11-11T05:39:54Z" level=debug msg="Changing ONU InternalState from discovered to enabled" IntfId=0 OnuId=2 OnuSn=ETRI00010002 module=ONU
+time="2020-11-11T05:39:54Z" level=debug msg="Sent Indication_OnuInd" AdminState=up IntfId=0 OnuId=2 OnuSn=ETRI00010002 OperState=up module=ONU
+time="2020-11-11T05:39:54Z" level=debug msg="Sent Indication_OnuDiscInd" IntfId=0 OnuId=0 OnuSn=ETRI00010003 module=ONU
+time="2020-11-11T05:39:54Z" level=info msg="Received ActivateOnu call from VOLTHA" OnuSn=ETRI00010003 module=OLT
+time="2020-11-11T05:39:54Z" level=debug msg="Storing OnuId " IntfId=0 OnuId=3 SerialNumber=ETRI00010003 module=ONU
+time="2020-11-11T05:39:54Z" level=info msg="Failed to transition ONU.OperState to enabled state: event enable inappropriate in current state up" IntfId=0 OnuId=3 OnuSn=ETRI00010003 module=OLT
+time="2020-11-11T05:39:54Z" level=debug msg="Changing ONU InternalState from discovered to enabled" IntfId=0 OnuId=3 OnuSn=ETRI00010003 module=ONU
+time="2020-11-11T05:39:54Z" level=debug msg="Sent Indication_OnuInd" AdminState=up IntfId=0 OnuId=3 OnuSn=ETRI00010003 OperState=up module=ONU
+time="2020-11-11T05:39:54Z" level=debug msg="Sent Indication_OnuDiscInd" IntfId=0 OnuId=0 OnuSn=ETRI00010004 module=ONU
+time="2020-11-11T05:39:54Z" level=info msg="Received ActivateOnu call from VOLTHA" OnuSn=ETRI00010004 module=OLT
+time="2020-11-11T05:39:54Z" level=debug msg="Storing OnuId " IntfId=0 OnuId=4 SerialNumber=ETRI00010004 module=ONU
+time="2020-11-11T05:39:54Z" level=info msg="Failed to transition ONU.OperState to enabled state: event enable inappropriate in current state up" IntfId=0 OnuId=4 OnuSn=ETRI00010004 module=OLT
+time="2020-11-11T05:39:54Z" level=debug msg="Changing ONU InternalState from discovered to enabled" IntfId=0 OnuId=4 OnuSn=ETRI00010004 module=ONU
+time="2020-11-11T05:39:54Z" level=debug msg="Sent Indication_OnuInd" AdminState=up IntfId=0 OnuId=4 OnuSn=ETRI00010004 OperState=up module=ONU
+time="2020-11-11T05:40:04Z" level=info msg="Send UNI Link Down Alarm on OMCI Sim channel"
+time="2020-11-11T05:40:04Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=1 messageType=UniLinkDown module=OLT
+time="2020-11-11T05:40:04Z" level=info msg="UNI Link Alarm" IntfId=0 OnuId=1 Type=UniLinkDown module=ONU
+time="2020-11-11T05:40:04Z" level=info msg="UNI Link alarm sent" IntfId=0 SerialNumber=ETRI00010001 Type=UniLinkDown module=ONU omciPacket="[0 0 16 10 0 11 1 1 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]"
+time="2020-11-11T05:40:05Z" level=info msg="Send UNI Link Up Alarm on OMCI Sim channel"
+time="2020-11-11T05:40:05Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=1 messageType=UniLinkUp module=OLT
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link Alarm" IntfId=0 OnuId=1 Type=UniLinkUp module=ONU
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link alarm sent" IntfId=0 SerialNumber=ETRI00010001 Type=UniLinkUp module=ONU omciPacket="[0 0 16 10 0 11 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]"
+time="2020-11-11T05:40:05Z" level=info msg="Send UNI Link Down Alarm on OMCI Sim channel"
+time="2020-11-11T05:40:05Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=2 messageType=UniLinkDown module=OLT
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link Alarm" IntfId=0 OnuId=2 Type=UniLinkDown module=ONU
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link alarm sent" IntfId=0 SerialNumber=ETRI00010002 Type=UniLinkDown module=ONU omciPacket="[0 0 16 10 0 11 1 1 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]"
+time="2020-11-11T05:40:05Z" level=info msg="Send UNI Link Down Alarm on OMCI Sim channel"
+time="2020-11-11T05:40:05Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=3 messageType=UniLinkDown module=OLT
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link Alarm" IntfId=0 OnuId=3 Type=UniLinkDown module=ONU
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link alarm sent" IntfId=0 SerialNumber=ETRI00010003 Type=UniLinkDown module=ONU omciPacket="[0 0 16 10 0 11 1 1 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]"
+time="2020-11-11T05:40:05Z" level=info msg="Send UNI Link Down Alarm on OMCI Sim channel"
+time="2020-11-11T05:40:05Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=4 messageType=UniLinkDown module=OLT
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link Alarm" IntfId=0 OnuId=4 Type=UniLinkDown module=ONU
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link alarm sent" IntfId=0 SerialNumber=ETRI00010004 Type=UniLinkDown module=ONU omciPacket="[0 0 16 10 0 11 1 1 128 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]"
+time="2020-11-11T05:40:05Z" level=info msg="Send UNI Link Up Alarm on OMCI Sim channel"
+time="2020-11-11T05:40:05Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=2 messageType=UniLinkUp module=OLT
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link Alarm" IntfId=0 OnuId=2 Type=UniLinkUp module=ONU
+time="2020-11-11T05:40:05Z" level=info msg="UNI Link alarm sent" IntfId=0 SerialNumber=ETRI00010002 Type=UniLinkUp module=ONU omciPacket="[0 0 16 10 0 11 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]"
+time="2020-11-11T05:40:06Z" level=info msg="Send UNI Link Up Alarm on OMCI Sim channel"
+time="2020-11-11T05:40:06Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=3 messageType=UniLinkUp module=OLT
+time="2020-11-11T05:40:06Z" level=info msg="UNI Link Alarm" IntfId=0 OnuId=3 Type=UniLinkUp module=ONU
+time="2020-11-11T05:40:06Z" level=info msg="UNI Link alarm sent" IntfId=0 SerialNumber=ETRI00010003 Type=UniLinkUp module=ONU omciPacket="[0 0 16 10 0 11 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]"
+time="2020-11-11T05:40:06Z" level=info msg="Send UNI Link Up Alarm on OMCI Sim channel"
+time="2020-11-11T05:40:06Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=4 messageType=UniLinkUp module=OLT
+time="2020-11-11T05:40:06Z" level=info msg="UNI Link Alarm" IntfId=0 OnuId=4 Type=UniLinkUp module=ONU
+time="2020-11-11T05:40:06Z" level=info msg="UNI Link alarm sent" IntfId=0 SerialNumber=ETRI00010004 Type=UniLinkUp module=ONU omciPacket="[0 0 16 10 0 11 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0]"
+time="2020-11-11T05:40:08Z" level=info msg="received CreateTrafficSchedulers" IntfId=0 OnuId=2 OnuPortNo=32 module=OLT
+time="2020-11-11T05:40:08Z" level=info msg="received CreateTrafficQueues" module=OLT
+time="2020-11-11T05:40:08Z" level=debug msg="ONU receives FlowAdd" ClassifierOPbits=255 DstPort=0 EthType=888e FlowId=1 FlowType=upstream GemportId=1026 InnerVlan=0 IntfId=0 IpProto=0 OnuId=2 OnuSn=ETRI00010002 OuterVlan=4091 PortNo=32 SrcPort=0 UniID=0 module=ONU
+time="2020-11-11T05:40:08Z" level=debug msg="Storing ONU portNo" FlowPortNo=32 IntfId=0 OnuId=2 OnuPortNo=0 SerialNumber=ETRI00010002 module=ONU
+time="2020-11-11T05:40:08Z" level=info msg="received CreateTrafficSchedulers" IntfId=0 OnuId=3 OnuPortNo=48 module=OLT
+time="2020-11-11T05:40:08Z" level=info msg="received CreateTrafficQueues" module=OLT
+time="2020-11-11T05:40:08Z" level=debug msg="ONU receives FlowAdd" ClassifierOPbits=255 DstPort=0 EthType=888e FlowId=2 FlowType=upstream GemportId=1025 InnerVlan=0 IntfId=0 IpProto=0 OnuId=3 OnuSn=ETRI00010003 OuterVlan=4091 PortNo=48 SrcPort=0 UniID=0 module=ONU
+time="2020-11-11T05:40:08Z" level=debug msg="Storing ONU portNo" FlowPortNo=48 IntfId=0 OnuId=3 OnuPortNo=0 SerialNumber=ETRI00010003 module=ONU
+time="2020-11-11T05:40:08Z" level=info msg="received CreateTrafficSchedulers" IntfId=0 OnuId=4 OnuPortNo=64 module=OLT
+time="2020-11-11T05:40:08Z" level=info msg="received CreateTrafficQueues" module=OLT
+time="2020-11-11T05:40:08Z" level=debug msg="ONU receives FlowAdd" ClassifierOPbits=255 DstPort=0 EthType=888e FlowId=3 FlowType=upstream GemportId=1027 InnerVlan=0 IntfId=0 IpProto=0 OnuId=4 OnuSn=ETRI00010004 OuterVlan=4091 PortNo=64 SrcPort=0 UniID=0 module=ONU
+time="2020-11-11T05:40:08Z" level=debug msg="Storing ONU portNo" FlowPortNo=64 IntfId=0 OnuId=4 OnuPortNo=0 SerialNumber=ETRI00010004 module=ONU
+time="2020-11-11T05:40:08Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=2 messageType=GemPortAdded module=OLT
+time="2020-11-11T05:40:08Z" level=info msg="GemPort Added" IntfId=0 OnuId=2 OnuSn=ETRI00010002
+time="2020-11-11T05:40:08Z" level=debug msg="Changing ONU InternalState from enabled to auth_started" IntfId=0 OnuId=2 OnuSn=ETRI00010002 module=ONU
+time="2020-11-11T05:40:08Z" level=debug msg="Changing ONU InternalState from enabled to auth_started" IntfId=0 OnuId=2 OnuSn=ETRI00010002 module=ONU
+time="2020-11-11T05:40:08Z" level=info msg="Receive StartEAPOL message on ONU Channel"
+time="2020-11-11T05:40:08Z" level=debug msg="Sent EapStart packet" IntfId=0 OnuId=2 OnuSn=ETRI00010002 PortNo=32 module=EAPOL
+time="2020-11-11T05:40:08Z" level=debug msg="Changing ONU InternalState from auth_started to eap_start_sent" IntfId=0 OnuId=2 OnuSn=ETRI00010002 module=ONU
+time="2020-11-11T05:40:08Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=3 messageType=GemPortAdded module=OLT
+time="2020-11-11T05:40:08Z" level=info msg="GemPort Added" IntfId=0 OnuId=3 OnuSn=ETRI00010003
+time="2020-11-11T05:40:08Z" level=debug msg="Changing ONU InternalState from enabled to auth_started" IntfId=0 OnuId=3 OnuSn=ETRI00010003 module=ONU
+time="2020-11-11T05:40:08Z" level=debug msg="Changing ONU InternalState from enabled to auth_started" IntfId=0 OnuId=3 OnuSn=ETRI00010003 module=ONU
+time="2020-11-11T05:40:08Z" level=info msg="Receive StartEAPOL message on ONU Channel"
+time="2020-11-11T05:40:08Z" level=debug msg="Sent EapStart packet" IntfId=0 OnuId=3 OnuSn=ETRI00010003 PortNo=48 module=EAPOL
+time="2020-11-11T05:40:08Z" level=debug msg="Changing ONU InternalState from auth_started to eap_start_sent" IntfId=0 OnuId=3 OnuSn=ETRI00010003 module=ONU
+time="2020-11-11T05:40:08Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=4 messageType=GemPortAdded module=OLT
+time="2020-11-11T05:40:08Z" level=info msg="GemPort Added" IntfId=0 OnuId=4 OnuSn=ETRI00010004
+time="2020-11-11T05:40:08Z" level=debug msg="Changing ONU InternalState from enabled to auth_started" IntfId=0 OnuId=4 OnuSn=ETRI00010004 module=ONU
+time="2020-11-11T05:40:08Z" level=debug msg="Changing ONU InternalState from enabled to auth_started" IntfId=0 OnuId=4 OnuSn=ETRI00010004 module=ONU
+time="2020-11-11T05:40:08Z" level=info msg="Receive StartEAPOL message on ONU Channel"
+time="2020-11-11T05:40:08Z" level=debug msg="Sent EapStart packet" IntfId=0 OnuId=4 OnuSn=ETRI00010004 PortNo=64 module=EAPOL
+time="2020-11-11T05:40:08Z" level=debug msg="Changing ONU InternalState from auth_started to eap_start_sent" IntfId=0 OnuId=4 OnuSn=ETRI00010004 module=ONU
+time="2020-11-11T05:40:09Z" level=debug msg="Adding OLT flow" FlowId=4 module=OLT
+time="2020-11-11T05:40:09Z" level=debug msg="Adding OLT flow" FlowId=5 module=OLT
+time="2020-11-11T05:40:15Z" level=info msg="received CreateTrafficSchedulers" IntfId=0 OnuId=1 OnuPortNo=16 module=OLT
+time="2020-11-11T05:40:15Z" level=info msg="received CreateTrafficQueues" module=OLT
+time="2020-11-11T05:40:15Z" level=debug msg="ONU receives FlowAdd" ClassifierOPbits=255 DstPort=0 EthType=888e FlowId=6 FlowType=upstream GemportId=1024 InnerVlan=0 IntfId=0 IpProto=0 OnuId=1 OnuSn=ETRI00010001 OuterVlan=4091 PortNo=16 SrcPort=0 UniID=0 module=ONU
+time="2020-11-11T05:40:15Z" level=debug msg="Storing ONU portNo" FlowPortNo=16 IntfId=0 OnuId=1 OnuPortNo=0 SerialNumber=ETRI00010001 module=ONU
+time="2020-11-11T05:40:15Z" level=info msg="Received message on OMCI Sim channel" IntfId=0 OnuId=1 messageType=GemPortAdded module=OLT
+time="2020-11-11T05:40:15Z" level=info msg="GemPort Added" IntfId=0 OnuId=1 OnuSn=ETRI00010001
+time="2020-11-11T05:40:15Z" level=debug msg="Changing ONU InternalState from enabled to auth_started" IntfId=0 OnuId=1 OnuSn=ETRI00010001 module=ONU
+time="2020-11-11T05:40:15Z" level=debug msg="Changing ONU InternalState from enabled to auth_started" IntfId=0 OnuId=1 OnuSn=ETRI00010001 module=ONU
+time="2020-11-11T05:40:15Z" level=info msg="Receive StartEAPOL message on ONU Channel"
+time="2020-11-11T05:40:15Z" level=debug msg="Sent EapStart packet" IntfId=0 OnuId=1 OnuSn=ETRI00010001 PortNo=16 module=EAPOL
+time="2020-11-11T05:40:15Z" level=debug msg="Changing ONU InternalState from auth_started to eap_start_sent" IntfId=0 OnuId=1 OnuSn=ETRI00010001 module=ONU

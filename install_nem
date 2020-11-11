@@ -1,7 +1,7 @@
 helm dep up ../helm-charts/xos-core
 helm install -n xos-core ../helm-charts/xos-core -f ./xos-core.yaml
 helm dep up ../helm-charts/xos-profiles/seba-services
-helm install -n seba-service ../helm-charts/xos-profiles/seba-services -f ./nem-file.yaml
+helm install -n seba-service ../helm-charts/xos-profiles/seba-services -f ./seba-service.yaml
 helm dep up ../helm-charts/workflows/att-workflow
 helm install -n att-workflow ../helm-charts/workflows/att-workflow -f ./xos-workflow.yaml
 #helm dep up ../helm-charts/workflows/dt-workflow

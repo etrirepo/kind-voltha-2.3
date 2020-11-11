@@ -1,10 +1,10 @@
-20201021T082231Z
-+ kill -9 22840 22846
-+ kill -9 22854 22856
-+ kill -9 15274 15280
-+ kill -9 15288 3475
-./voltha: 줄 736: kill: (3475) - 그런 프로세스가 없음
-+ kill -9 15309 15314
+20201111T052313Z
++ kill -9 15486 15492
++ kill -9 15498 15501
++ kill -9 8235 8242
++ kill -9 8258 26899
+./voltha: line 736: kill: (26899) - No such process
++ kill -9 8300 8304
 + ./bin/helm delete --no-hooks --purge etcd-operator
 release "etcd-operator" deleted
 + ./bin/helm delete --no-hooks --purge onos
