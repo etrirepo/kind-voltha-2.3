@@ -1129,7 +1129,9 @@ if [ $COUNT -ne 1 ]; then
         wait_for_pods - "kube-system" 1 "includes" -1 "Waiting for Tiller POD to start" "tiller-deploy-.*"
     fi
     bspin - "Add Google Incubator repository to Helm"
-    (set -x; helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com >>$LOG 2>&1) >>$LOG 2>&1
+    #(set -x; helm repo add incubator https://kubernetes-charts-incubator.storage.googleapis.com >>$LOG 2>&1) >>$LOG 2>&1
+    (set -x; helm repo add incubator https://charts.helm.sh/incubator >>$LOG 2>&1) >>$LOG 2>&1
+
     espin - $VERIFIED
 
     # HACK (sort-of) - the config for tiller is about to be patched, which will
